@@ -165,7 +165,8 @@ $jsonArray = json_encode($resultArray);
             shufflePlaylist = currentPlaylist.slice();
             shuffleArray(shufflePlaylist);
         }
-        if (shuffle){
+        if (shuffle)
+        {
             currentIndex = shufflePlaylist.indexOf(trackId);
         }
         else
