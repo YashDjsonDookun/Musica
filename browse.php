@@ -15,7 +15,8 @@
                             . $row['title'] .
                         "</div>
 					</span>
-				</div>";
+				</div>
+			";
 		}
 	?>
 </div>
