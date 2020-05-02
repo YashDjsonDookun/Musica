@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
     include "./assets/src/includes/includedFiles.php";
     if(isset($_GET['id']))
@@ -68,67 +67,3 @@
     <input type="hidden" class="songId">
     <?php echo Playlist::getPlaylistsDropdown($conn, $userLoggedIn->getUsername()); ?>
 </nav>
-=======
-<?php
-    include "./assets/src/includes/includedFiles.php";
-    if(isset($_GET['id']))
-    {
-        $albumId = $_GET['id'];
-    }
-    else {
-        header('Location: index.php');
-    }
-
-    $album = new Album($conn, $albumId);
-    $artist = $album->getArtist();
-?>
-
-<div class="entityInfo">
-    <div class="leftSection">
-        <img src="<?php echo $album->getArtworkPath(); ?>" alt="">
-    </div>
-    <div class="rightSection">
-        <h2><?php echo $album->getTitle() ?></h2>
-        <p>By <?php echo $artist->getName() ?></p>
-        <p><?php echo $album->getNumberOfSongs() ?> Songs</p>
-    </div>
-</div>
-
-<div class="trackListContainer">
-    <ul class="tracklist">
-        <?php
-            $songIdArray = $album->getSongIds();
-            $i=1;
-            foreach($songIdArray as $songId)
-            {
-                $albumSong = new Song($conn, $songId);
-                $albumArtist = $albumSong->getArtist();
-
-
-                echo "<li class='tracklistRow'>
-                    <div class='trackCount'>
-                        <img class='play' src='assets/images/icons/play-white.png' onclick='setTrack(\"". $albumSong->getId() ."\", tempPlaylist, true)'>
-                        <span class='trackNumber'>$i</span>
-                    </div>
-                    <div class='trackInfo'>
-                        <span class='trackName'>" . $albumSong->getTitle() . "</span>
-                        <span class='artistName'>" . $albumArtist->getName() . "</span>
-                    </div>
-                    <div class='trackOptions'>
-                        <img class='optionsButton' src='assets/images/icons/more.png'>
-                    </div>
-                    <div class='trackDuration'>
-                        <span class='duration'>" . $albumSong->getDuration() . "</span>
-                    </div>
-                </li>";
-                $i++;
-            }
-        ?>
-
-        <script>
-            let tempSongIds = '<?php echo json_encode($songIdArray)?>';
-            tempPlaylist = JSON.parse(tempSongIds);
-        </script>
-    </ul>
-</div>
->>>>>>> 3419a102e75c0ad4c0302c7e5d2083de5b0c796e
