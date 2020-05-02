@@ -1,16 +1,17 @@
 <?php
     include("assets/src/includes/config.php");
+    include("assets/src/includes/classes/User.php");
     include("assets/src/includes/classes/Artist.php");
     include("assets/src/includes/classes/Album.php");
     include("assets/src/includes/classes/Song.php");
+    include("assets/src/includes/classes/Playlist.php");
 	
-	/* Kill Session */
-//	session_destroy();
 	if(isset($_SESSION['userLoggedIn']))
 	{
-		$userLoggedIn = $_SESSION['userLoggedIn'];
+		$userLoggedIn = new User($conn, $_SESSION['userLoggedIn']);
+		$username = $userLoggedIn->getUsername();
         echo "
-            <script>userLoggedIn = '$userLoggedIn';</script>
+            <script>userLoggedIn = '$username';</script>
         ";
 	}
 	else
