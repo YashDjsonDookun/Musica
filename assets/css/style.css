@@ -470,14 +470,14 @@ input:focus {
     color: rgba(147,147,147,0.8);
     cursor: pointer;
     height: 46px;
-    background-color: #282828;
+    background-color: #4f45a5;
     font-size: 14px;
 }
 
 .optionsMenu .item:hover {
     color: #fff;
-    background-color: #333;
-    border-color: #333;
+    background-color: #4f45a5;
+    border-color: #5E59A5;
 }
 
 .optionsMenu select {

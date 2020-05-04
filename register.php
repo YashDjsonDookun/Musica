@@ -16,7 +16,7 @@
 ?>
 <html>
     <head>
-        <title>Welcome to Slotify!</title>
+        <title>Welcome to Musica!</title>
         <link rel="stylesheet" href="assets/css/register.css">
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
         <script src="assets/js/register.js"></script>
